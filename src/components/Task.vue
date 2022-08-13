@@ -2,7 +2,7 @@
   <div class="task" :class="{ reminder: task.reminder }">
     <h3>
       {{ task.text }}
-      <i class="fas fa-times"></i>
+      <i @click="$emit('delete-task')" class="fas fa-times"></i>
     </h3>
     <p>{{ task.day }}</p>
   </div>
@@ -13,7 +13,7 @@ export default {
   name: 'AppTask',
   props: {
     task: Object
-  }
+  },
 }
 </script>
 
