@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <AppHeader />
+    <AppHeader title="Task Tracker" />
   </div>
 </template>
 
