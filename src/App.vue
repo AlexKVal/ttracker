@@ -3,11 +3,13 @@
     <Header title="Task Tracker" @add-task-click="toggleAddTask" :showAddTask="showAddTask" />
     <AddTask v-show="showAddTask" @add-task="addTask" />
     <Tasks :tasks="tasks" @toggle-reminder="toggleReminder" @delete-task="deleteTask" />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 
@@ -15,6 +17,7 @@ export default {
   name: 'App',
   components: {
     Header,
+    Footer,
     Tasks,
     AddTask
   },
@@ -22,43 +25,46 @@ export default {
     return {
       tasks: [],
       showAddTask: false,
+      apiUrl: '/api/tasks',
     }
   },
   methods: {
-    deleteTask(id) {
-      this.tasks = this.tasks.filter((t) => t.id !== id)
+    async deleteTask(id) {
+      const res = await fetch(`${this.apiUrl}/${id}`, { method: 'DELETE' })
+      res.ok ? await this.fetchTasks() : alert("API error")
     },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((t) => t.id == id ? { ...t, reminder: !t.reminder } : t)
+    async toggleReminder(task) {
+      const res = await fetch(`${this.apiUrl}/${task.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ reminder: !task.reminder })
+      })
+      res.ok ? await this.fetchTasks() : alert("API error")
     },
-    addTask(newTask) {
-      this.tasks = [...this.tasks, newTask]
+    async addTask(newTask) {
+      const res = await fetch(this.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTask)
+      })
+      res.ok ? await this.fetchTasks() : alert("API error")
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-    }
+    },
+    async fetchTasks() {
+      this.tasks = await this.fetchJson(this.apiUrl)
+    },
+    async fetchJson(url) {
+      return await fetch(url).then(r => r.json())
+    },
   },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Doctors Appointment',
-        day: 'March 1st at 2:30pm',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Double-Click Me',
-        day: 'March 3rd at 1:30pm',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Food Shopping',
-        day: 'March 3rd at 11:00am',
-        reminder: false,
-      },
-    ]
+  async created() {
+    this.fetchTasks()
   },
 }
 </script>

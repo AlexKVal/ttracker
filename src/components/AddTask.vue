@@ -39,7 +39,7 @@ export default {
 
       // new object
       const newTask = {
-        id: Math.floor(Math.random() * 100000),
+        // id: Math.floor(Math.random() * 100000), // not needed anymore, b/c of the backend
         text: this.text,
         day: this.day,
         reminder: this.reminder,
