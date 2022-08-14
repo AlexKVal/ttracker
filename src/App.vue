@@ -112,4 +112,11 @@ body {
   display: block;
   width: 100%;
 }
+
+.prevent-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 </style>

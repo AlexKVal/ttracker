@@ -1,5 +1,5 @@
 <template>
-  <div @dblclick="$emit('toggle-reminder')" class="task" :class="{ reminder: task.reminder }">
+  <div @dblclick="$emit('toggle-reminder')" class="task prevent-select" :class="{ reminder: task.reminder }">
     <h3>
       {{ task.text }}
       <i @click="$emit('delete-task')" class="fas fa-times"></i>
