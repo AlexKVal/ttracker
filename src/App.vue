@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker" @add-task-click="toggleAddTask" />
+    <Header title="Task Tracker" @add-task-click="toggleAddTask" :showAddTask="showAddTask" />
     <AddTask v-show="showAddTask" @add-task="addTask" />
     <Tasks :tasks="tasks" @toggle-reminder="toggleReminder" @delete-task="deleteTask" />
   </div>
