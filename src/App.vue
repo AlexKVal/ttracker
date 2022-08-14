@@ -48,7 +48,7 @@ export default {
       },
       {
         id: 2,
-        text: 'Meeting at School',
+        text: 'Double-Click Me',
         day: 'March 3rd at 1:30pm',
         reminder: true,
       },
