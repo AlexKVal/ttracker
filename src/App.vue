@@ -33,6 +33,7 @@ export default {
     },
     addTask(newTask) {
       this.tasks = [...this.tasks, newTask]
+      this.showAddTask = false
     },
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
