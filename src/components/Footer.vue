@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>Copyright &copy; 2021</p>
-    <a href="/about">About</a>
+    <RouterLink to="about">About</RouterLink>
   </footer>
 </template>
 

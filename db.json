@@ -23,6 +23,12 @@
       "day": "Tuesday",
       "reminder": false,
       "id": 4
+    },
+    {
+      "text": "Next one",
+      "day": "Saturday 12:00",
+      "reminder": true,
+      "id": 5
     }
   ]
 }
