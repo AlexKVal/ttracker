@@ -5,12 +5,6 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'AppFooter'
-}
-</script>
-
 <style scoped>
 a {
   color: #333;

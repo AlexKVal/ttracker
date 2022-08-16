@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home'
-import About from '../views/About'
+import HomeView from '../views/HomeView'
+import AboutView from '../views/AboutView'
 
 export default createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -8,12 +8,12 @@ export default createRouter({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: HomeView
     },
     {
       path: '/about',
       name: 'About',
-      component: About
+      component: AboutView
     },
   ]
 })

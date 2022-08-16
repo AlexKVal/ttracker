@@ -20,12 +20,6 @@ defineProps({
 const store = useStore()
 </script>
 
-<script>
-export default {
-  name: 'AppTask'
-}
-</script>
-
 <style scoped>
 .fas {
   color: red;

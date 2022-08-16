@@ -1,22 +1,14 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker" />
+    <AppHeader title="Task Tracker" />
     <RouterView />
-    <Footer />
+    <AppFooter />
   </div>
 </template>
 
-<script>
-import Header from './components/Header'
-import Footer from './components/Footer'
-
-export default {
-  name: 'App',
-  components: {
-    Header,
-    Footer,
-  },
-}
+<script setup>
+import AppHeader from './components/AppHeader'
+import AppFooter from './components/AppFooter'
 </script>
 
 <style>

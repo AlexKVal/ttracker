@@ -5,7 +5,7 @@ const apiUrl = '/api/tasks'
 export const useStore = defineStore('tasks', {
   store: () => ({
     tasks: [],
-    showAddTask: true,
+    showTaskForm: true,
   }),
   // getters: {},
   actions: {
@@ -41,7 +41,7 @@ export const useStore = defineStore('tasks', {
     },
     //
     toggleAddTask() {
-      this.showAddTask = !this.showAddTask
+      this.showTaskForm = !this.showTaskForm
     },
   }
 })

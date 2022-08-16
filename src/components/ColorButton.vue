@@ -10,9 +10,3 @@ defineProps({
   color: String,
 })
 </script>
-
-<script>
-export default {
-  name: 'TaskButton',
-}
-</script>
