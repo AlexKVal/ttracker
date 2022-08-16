@@ -1,6 +1,6 @@
 <template>
   <TaskForm v-show="store.showTaskForm" />
-  <TasksList :tasks="store.tasks" />
+  <TasksList />
 </template>
 
 <script setup>
