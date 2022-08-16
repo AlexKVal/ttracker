@@ -17,42 +17,46 @@
   </form>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import { useStore } from '../store'
+
+const text = ref('')
+const day = ref('')
+const reminder = ref(false)
+
+const store = useStore()
+
+function onSubmit(e) {
+  e.preventDefault()
+
+  // validation
+  if (!text.value) {
+    alert('Please enter a Task')
+    return
+  }
+
+  // new object
+  const newTask = {
+    // id: Math.floor(Math.random() * 100000), // not needed anymore, b/c of the backend
+    text: text.value,
+    day: day.value,
+    reminder: reminder.value,
+  }
+
+  // store it
+  store.addTask(newTask)
+
+  // clear the form
+  text.value = ''
+  day.value = ''
+  reminder.value = false
+}
+</script>
+
 <script>
 export default {
-  name: 'AddTask',
-  data() {
-    return {
-      text: '',
-      day: '',
-      reminder: false
-    }
-  },
-  methods: {
-    onSubmit(e) {
-      e.preventDefault()
-
-      // validation
-      if (!this.text) {
-        alert('Please enter a Task')
-        return
-      }
-
-      // new object
-      const newTask = {
-        // id: Math.floor(Math.random() * 100000), // not needed anymore, b/c of the backend
-        text: this.text,
-        day: this.day,
-        reminder: this.reminder,
-      }
-
-      this.$emit('add-task', newTask)
-
-      // clear the form
-      this.text = ''
-      this.day = ''
-      this.reminder = false
-    }
-  },
+  name: 'AddTask'
 }
 </script>
 

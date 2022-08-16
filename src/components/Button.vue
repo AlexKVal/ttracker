@@ -1,18 +1,18 @@
 <template>
-  <button class="btn" :style="{ background: color }" @click="onClick()">{{ text }}</button>
+  <button class="btn" :style="{ background: color }">{{ text }}</button>
 </template>
+
+<script setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  text: String,
+  color: String,
+})
+</script>
 
 <script>
 export default {
   name: 'TaskButton',
-  props: {
-    text: String,
-    color: String,
-  },
-  methods: {
-    onClick() {
-      console.log('click')
-    }
-  }
 }
 </script>

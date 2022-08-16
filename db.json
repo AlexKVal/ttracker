@@ -27,7 +27,7 @@
     {
       "text": "Next one",
       "day": "Saturday 12:00",
-      "reminder": true,
+      "reminder": false,
       "id": 5
     }
   ]

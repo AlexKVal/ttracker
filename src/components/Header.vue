@@ -1,30 +1,34 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button v-show="homePage" @click="$emit('add-task-click')" :text="showAddTask ? 'Close' : 'Add Task'"
-      :color="showAddTask ? 'red' : 'green'" />
+    <Button v-show="homePage" @click="store.toggleAddTask" :text="buttonText" :color="buttonColor" />
   </header>
 </template>
 
-<script>
+<script setup>
+import { defineProps, computed } from 'vue'
+import { useStore } from '../store'
 import Button from './Button'
 
+defineProps({
+  title: {
+    type: String,
+    default: 'Hello World',
+  },
+})
+
+const store = useStore()
+const buttonText = computed(() => store.showAddTask ? 'Close' : 'Add Task')
+const buttonColor = computed(() => store.showAddTask ? 'red' : 'green')
+</script>
+
+<script>
 export default {
   name: 'AppHeader',
-  props: {
-    title: {
-      type: String,
-      default: 'Hello World',
-    },
-    showAddTask: Boolean,
-  },
   computed: {
     homePage() {
       return this.$route.path == '/'
     }
-  },
-  components: {
-    Button
   },
 }
 </script>

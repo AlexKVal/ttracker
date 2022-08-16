@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker" @add-task-click="toggleAddTask" :showAddTask="showAddTask" />
-    <RouterView :showAddTask="showAddTask" />
+    <Header title="Task Tracker" />
+    <RouterView />
     <Footer />
   </div>
 </template>
@@ -15,16 +15,6 @@ export default {
   components: {
     Header,
     Footer,
-  },
-  data() {
-    return {
-      showAddTask: false,
-    }
-  },
-  methods: {
-    toggleAddTask() {
-      this.showAddTask = !this.showAddTask
-    },
   },
 }
 </script>

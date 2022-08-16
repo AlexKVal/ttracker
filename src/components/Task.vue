@@ -1,19 +1,28 @@
 <template>
-  <div @dblclick="$emit('toggle-reminder')" class="task prevent-select" :class="{ reminder: task.reminder }">
+  <div @dblclick="store.toggleReminder(task)" class="task prevent-select"
+    :class="{ reminder: task.reminder }">
     <h3>
       {{ task.text }}
-      <i @click="$emit('delete-task')" class="fas fa-times"></i>
+      <i @click="store.deleteTask(task.id)" class="fas fa-times"></i>
     </h3>
     <p>{{ task.day }}</p>
   </div>
 </template>
 
+<script setup>
+import { defineProps } from 'vue'
+import { useStore } from '../store'
+
+defineProps({
+  task: Object
+})
+
+const store = useStore()
+</script>
+
 <script>
 export default {
-  name: 'AppTask',
-  props: {
-    task: Object
-  },
+  name: 'AppTask'
 }
 </script>
 
