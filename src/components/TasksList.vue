@@ -5,7 +5,6 @@
 </template>
 
 <script setup>
-import TaskItem from './TaskItem'
 import { useStore } from '../store'
 
 const store = useStore()

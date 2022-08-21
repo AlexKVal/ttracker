@@ -6,11 +6,6 @@
   </div>
 </template>
 
-<script setup>
-import AppHeader from './components/AppHeader'
-import AppFooter from './components/AppFooter'
-</script>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 

@@ -9,7 +9,6 @@
 import { defineProps, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '../store'
-import ColorButton from './ColorButton'
 
 defineProps({
   title: {

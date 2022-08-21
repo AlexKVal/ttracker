@@ -3,32 +3,20 @@
     {
       "id": 1,
       "text": "Doctors Appointment",
-      "day": "March 1st at 2: 30pm",
+      "day": "March 1st at 02:30pm",
       "reminder": true
     },
     {
       "id": 2,
       "text": "Double-Click Me",
-      "day": "March 3rd at 1: 30pm",
+      "day": "March 3rd at 01:30pm",
       "reminder": false
     },
     {
       "id": 3,
       "text": "Food Shopping",
-      "day": "March 3rd at 11: 00am",
+      "day": "March 3rd at 11:00am",
       "reminder": true
-    },
-    {
-      "text": "A new Task",
-      "day": "Tuesday",
-      "reminder": false,
-      "id": 4
-    },
-    {
-      "text": "Next one",
-      "day": "Saturday 12:00",
-      "reminder": false,
-      "id": 5
     }
   ]
 }

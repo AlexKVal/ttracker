@@ -13,4 +13,11 @@ module.exports = defineConfig({
       },
     },
   },
+  configureWebpack: {
+    plugins: [
+      require('unplugin-vue-components/webpack')({
+        dts: false,
+      }),
+    ],
+  },
 })
