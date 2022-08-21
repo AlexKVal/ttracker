@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { useRoute } from 'vue-router'
 
 const apiUrl = '/api/tasks'
 
@@ -7,7 +8,12 @@ export const useStore = defineStore('tasks', {
     tasks: [],
     showTaskForm: true,
   }),
-  // getters: {},
+  getters: {
+    homePage() {
+      const route = useRoute()
+      return route.path == '/'
+    },
+  },
   actions: {
     async deleteTask(id) {
       const res = await fetch(`${apiUrl}/${id}`, { method: 'DELETE' })
