@@ -1,14 +1,3 @@
-<template>
-  <div @dblclick="store.toggleReminder(task)" class="task prevent-select"
-    :class="{ reminder: task.reminder }">
-    <h3>
-      {{ task.text }}
-      <i @click="store.deleteTask(task.id)" class="fas fa-times"></i>
-    </h3>
-    <p>{{ task.day }}</p>
-  </div>
-</template>
-
 <script setup>
 import { defineProps } from 'vue'
 import { useStore } from '../store'
@@ -19,6 +8,16 @@ defineProps({
 
 const store = useStore()
 </script>
+
+<template>
+  <div class="task prevent-select" :class="{ reminder: task.reminder }" @dblclick="store.toggleReminder(task)">
+    <h3>
+      {{ task.text }}
+      <i class="fas fa-times" @click="store.deleteTask(task.id)" />
+    </h3>
+    <p>{{ task.day }}</p>
+  </div>
+</template>
 
 <style scoped>
 .fas {

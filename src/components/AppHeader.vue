@@ -1,10 +1,3 @@
-<template>
-  <header>
-    <h1>{{ title }}</h1>
-    <ColorButton v-show="homePage" @click="store.toggleAddTask" :text="buttonText" :color="buttonColor" />
-  </header>
-</template>
-
 <script setup>
 import { defineProps, computed } from 'vue'
 import { useRoute } from 'vue-router'
@@ -24,6 +17,13 @@ const store = useStore()
 const buttonText = computed(() => store.showTaskForm ? 'Close' : 'Add Task')
 const buttonColor = computed(() => store.showTaskForm ? 'red' : 'green')
 </script>
+
+<template>
+  <header>
+    <h1>{{ title }}</h1>
+    <ColorButton v-show="homePage" :text="buttonText" :color="buttonColor" @click="store.toggleAddTask" />
+  </header>
+</template>
 
 <style scoped>
 header {

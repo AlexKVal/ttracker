@@ -1,22 +1,3 @@
-<template>
-  <form @submit.prevent="onSubmit" class="add-form">
-    <div class="form-control">
-      <label>Task</label>
-      <input type="text" v-model="text" name="text" placeholder="Add Task" />
-    </div>
-    <div class="form-control">
-      <label>Day & Time</label>
-      <input type="text" v-model="day" name="day" placeholder="Add Day & Time" />
-    </div>
-    <div class="form-control form-control-check">
-      <label>Set Reminder</label>
-      <input type="checkbox" v-model="reminder" name="reminder" />
-    </div>
-
-    <input type="submit" value="Save Task" class="btn btn-block" />
-  </form>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 import { useStore } from '../store'
@@ -51,6 +32,25 @@ function onSubmit() {
   reminder.value = false
 }
 </script>
+
+<template>
+  <form class="add-form" @submit.prevent="onSubmit">
+    <div class="form-control">
+      <label>Task</label>
+      <input v-model="text" type="text" name="text" placeholder="Add Task">
+    </div>
+    <div class="form-control">
+      <label>Day & Time</label>
+      <input v-model="day" type="text" name="day" placeholder="Add Day & Time">
+    </div>
+    <div class="form-control form-control-check">
+      <label>Set Reminder</label>
+      <input v-model="reminder" type="checkbox" name="reminder">
+    </div>
+
+    <input type="submit" value="Save Task" class="btn btn-block">
+  </form>
+</template>
 
 <style scoped>
 .add-form {

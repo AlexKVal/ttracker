@@ -1,15 +1,19 @@
-<template>
-  <footer>
-    <p>Copyright &copy; 2021</p>
-    <RouterLink v-if="store.homePage" to="about">About</RouterLink>
-    <RouterLink v-else to="/">Home</RouterLink>
-  </footer>
-</template>
-
 <script setup>
 import { useStore } from '../store'
 const store = useStore()
 </script>
+
+<template>
+  <footer>
+    <p>Copyright &copy; 2021</p>
+    <RouterLink v-if="store.homePage" to="about">
+      About
+    </RouterLink>
+    <RouterLink v-else to="/">
+      Home
+    </RouterLink>
+  </footer>
+</template>
 
 <style scoped>
 a {
