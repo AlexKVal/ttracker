@@ -1,8 +1,4 @@
 <script setup>
-import { defineProps, computed } from 'vue'
-import { useRoute } from 'vue-router'
-import { useStore } from '../store'
-
 defineProps({
   title: {
     type: String,

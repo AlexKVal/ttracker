@@ -1,7 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
-import { useStore } from '../store'
-
 defineProps({
   task: Object
 })

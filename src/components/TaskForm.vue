@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-import { useStore } from '../store'
-
 const text = ref('')
 const day = ref('')
 const reminder = ref(false)

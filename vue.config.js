@@ -18,6 +18,19 @@ module.exports = defineConfig({
       require('unplugin-vue-components/webpack')({
         dts: false,
       }),
+      require('unplugin-auto-import/webpack')({
+        imports: [
+          'vue',
+          'vue/macros',
+          'vue-router',
+        ],
+        dts: false,
+        dirs: [
+          './src/composables',
+          './src/store',
+        ],
+        vueTemplate: true,
+      })
     ],
   },
 })

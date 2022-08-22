@@ -1,6 +1,4 @@
 <script setup>
-import { useStore } from '../store'
-
 const store = useStore()
 </script>
 
